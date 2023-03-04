@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/calculationView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="40dp"
+        android:layout_marginTop="92dp"
+        android:ems="10"
+        android:gravity="right"
+        android:hint="Enter expression"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resultView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:gravity="right"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calculationView" />
+
+    <LinearLayout
+        android:id="@+id/parentLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/resultView"
+        >
+
+        <LinearLayout
+            android:id="@+id/childLL1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/parentLL"
+            app:layout_constraintEnd_toEndOf="@id/parentLL"
+            app:layout_constraintTop_toTopOf="@id/parentLL"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/childLL2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/parentLL"
+            app:layout_constraintEnd_toEndOf="@id/parentLL"
+            app:layout_constraintTop_toTopOf="@id/parentLL"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/childLL3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/parentLL"
+            app:layout_constraintEnd_toEndOf="@id/parentLL"
+            app:layout_constraintTop_toTopOf="@id/parentLL"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/childLL4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/parentLL"
+            app:layout_constraintEnd_toEndOf="@id/parentLL"
+            app:layout_constraintTop_toTopOf="@id/parentLL"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/childLL5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@id/parentLL"
+            app:layout_constraintEnd_toEndOf="@id/parentLL"
+            app:layout_constraintTop_toTopOf="@id/parentLL"
+            >
+
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/commonButton"
+                android:text="1"
+                android:shadowColor="@color/black"
+                />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
