@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Calculator App</string>
+<!--    Button Digits-->
+    <string name="n0">0</string>
+    <string name="n1">1</string>
+    <string name="n2">2</string>
+    <string name="n3">3</string>
+    <string name="n4">4</string>
+    <string name="n5">5</string>
+    <string name="n6">6</string>
+    <string name="n7">7</string>
+    <string name="n8">8</string>
+    <string name="n9">9</string>
+<!--    Button Others-->
+    <string name="open_bra">(</string>
+    <string name="close_bra">)</string>
+    <string name="period">.</string>
+    <string name="ac">AC</string>
+    <string name="c">C</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="prod">*</string>
+    <string name="div">/</string>
+    <string name="equals">=</string>
 </resources>

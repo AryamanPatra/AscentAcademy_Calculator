@@ -11,4 +11,5 @@
     <color name="linecolor">#DAD8D8</color>
     <color name="btnbg1">#ffffff</color>
     <color name="btnbg2">#ff9800</color>
+    <color name="delete_red">#D33F3F</color>
 </resources>

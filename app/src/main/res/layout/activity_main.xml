@@ -8,13 +8,15 @@
 
     <TextView
         android:id="@+id/calculationView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:layout_marginTop="92dp"
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:layout_margin="10dp"
         android:ems="10"
         android:gravity="right"
         android:hint="Enter expression"
+        android:autoSizeMinTextSize="12dp"
+        android:autoSizeMaxTextSize="30dp"
+        android:autoSizeTextType="uniform"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -23,16 +25,21 @@
 
     <TextView
         android:id="@+id/resultView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="71dp"
+        android:layout_margin="10dp"
+        android:autoSizeMaxTextSize="30dp"
+        android:autoSizeMinTextSize="12dp"
+        android:autoSizeTextType="uniform"
         android:ems="10"
         android:gravity="right"
         android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/calculationView" />
+        app:layout_constraintTop_toBottomOf="@id/calculationView"
+        app:layout_constraintVertical_bias="0.051" />
 
     <LinearLayout
         android:id="@+id/parentLL"
@@ -51,29 +58,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginVertical="2dp"
             app:layout_constraintStart_toStartOf="@id/parentLL"
             app:layout_constraintEnd_toEndOf="@id/parentLL"
             app:layout_constraintTop_toTopOf="@id/parentLL"
             >
 
             <com.google.android.material.button.MaterialButton
-                style="@style/commonButton"
-                android:text="1"
+                android:id="@+id/open_bra"
+                style="@style/operatorButton"
+                android:text="@string/open_bra"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
-                style="@style/commonButton"
-                android:text="1"
+                android:id="@+id/close_bra"
+                style="@style/operatorButton"
+                android:text="@string/close_bra"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
-                style="@style/commonButton"
-                android:text="1"
+                android:id="@+id/cancel"
+                style="@style/operatorButton"
+                android:text="@string/c"
+                android:textColor="@color/delete_red"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
-                style="@style/commonButton"
-                android:text="1"
+                android:id="@+id/plus"
+                style="@style/operatorButton"
+                android:text="@string/plus"
                 android:shadowColor="@color/black"
                 />
 
@@ -84,29 +97,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginVertical="2dp"
             app:layout_constraintStart_toStartOf="@id/parentLL"
             app:layout_constraintEnd_toEndOf="@id/parentLL"
             app:layout_constraintTop_toTopOf="@id/parentLL"
             >
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/n7"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/n7"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/n8"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/n8"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/n9"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/n9"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
-                style="@style/commonButton"
-                android:text="1"
+                android:id="@+id/minus"
+                style="@style/operatorButton"
+                android:text="@string/minus"
                 android:shadowColor="@color/black"
                 />
 
@@ -117,29 +135,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginVertical="2dp"
             app:layout_constraintStart_toStartOf="@id/parentLL"
             app:layout_constraintEnd_toEndOf="@id/parentLL"
             app:layout_constraintTop_toTopOf="@id/parentLL"
             >
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/n4"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/n4"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/n5"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/n5"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/n6"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/n6"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
-                style="@style/commonButton"
-                android:text="1"
+                android:id="@+id/prod"
+                style="@style/operatorButton"
+                android:text="@string/prod"
                 android:shadowColor="@color/black"
                 />
 
@@ -150,29 +173,34 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginVertical="2dp"
             app:layout_constraintStart_toStartOf="@id/parentLL"
             app:layout_constraintEnd_toEndOf="@id/parentLL"
             app:layout_constraintTop_toTopOf="@id/parentLL"
             >
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/n1"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/n1"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/n2"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/n2"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/n3"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/n3"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
-                style="@style/commonButton"
-                android:text="1"
+                android:id="@+id/div"
+                style="@style/operatorButton"
+                android:text="@string/div"
                 android:shadowColor="@color/black"
                 />
 
@@ -183,29 +211,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginVertical="2dp"
             app:layout_constraintStart_toStartOf="@id/parentLL"
             app:layout_constraintEnd_toEndOf="@id/parentLL"
             app:layout_constraintTop_toTopOf="@id/parentLL"
             >
 
             <com.google.android.material.button.MaterialButton
-                style="@style/commonButton"
-                android:text="1"
+                android:id="@+id/period"
+                style="@style/operatorButton"
+                android:text="@string/period"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/n0"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/n0"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/all_cancel"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/ac"
+                android:textColor="@color/delete_red"
                 android:shadowColor="@color/black"
                 />
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/equals"
                 style="@style/commonButton"
-                android:text="1"
+                android:text="@string/equals"
+                android:backgroundTint="@color/btnbg2"
+                android:textColor="@color/white"
                 android:shadowColor="@color/black"
                 />
 
