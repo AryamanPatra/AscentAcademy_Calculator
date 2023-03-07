@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 
 public class InputMethods extends Methods {
     private Context context;
+    FormatCheckerMethods formatCheckerMethods;
+    CalculationMethods calculationMethods;
 
 
     public InputMethods(Context context) {
@@ -15,6 +17,8 @@ public class InputMethods extends Methods {
     @Override
     void setContext(Context context) {
         this.context = context;
+        formatCheckerMethods = new FormatCheckerMethods(context);
+        calculationMethods = new CalculationMethods(context);
     }
 
 //    Digit Inputs
@@ -76,20 +80,44 @@ public class InputMethods extends Methods {
         return s+DIV;
     }
     public String inputCloseBracs(String s){
-        return s+CLOSE_BRAC;
+        if (formatCheckerMethods.areBracsFormatted()){
+            formatCheckerMethods.closeBracCount++;
+            return s+CLOSE_BRAC;
+        }
+        else
+            return s;
     }
     public String inputOpenBracs(String s){
-        return s+OPEN_BRAC;
+        if (s.length()!=0){
+            char c = s.charAt(s.length()-1);
+            if (formatCheckerMethods.areBracsFormatted(c)){
+                formatCheckerMethods.openBracCount++;
+                return s+OPEN_BRAC;
+            }
+            else
+                return s;
+        }
+        else{
+            formatCheckerMethods.openBracCount++;
+            return s+OPEN_BRAC;
+        }
     }
 
 // Cancel & equals
     public String inputCancel(@NonNull String s){
-        if (s.length()!=0){
-            s = s.substring(0,s.length()-1);
+        int length = s.length();
+        if (length!=0){
+            formatCheckerMethods.whatIsCancelled(s.charAt(length-1));
+            s = s.substring(0,length-1);
         }
         return s;
     }
     public String inputAllCancel(){
+        formatCheckerMethods.allCancelled();
         return "";
+    }
+    public String inputEquals(String expression){
+        double answer = calculationMethods.initiateNreturn(expression);
+        return answer+"";
     }
 }

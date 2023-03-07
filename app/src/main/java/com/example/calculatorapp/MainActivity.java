@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     String expressionString = "";
     InputMethods inputMethods;
     TextView expressionTv;
+    TextView resultTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +48,13 @@ public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     public void btnClick(@NonNull View view){
         expressionTv = findViewById(R.id.calculationView);
+        resultTv = findViewById(R.id.resultView);
+        String resultString="";
         switch (view.getId()){
 //            other buttons
             case R.id.equals:
+                resultString = inputMethods.inputEquals(expressionString);
+                resultTv.setText(resultString);
                 break;
 
             case R.id.open_bra:
