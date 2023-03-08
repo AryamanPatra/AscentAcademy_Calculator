@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Stack;
 
 public class CalculationMethods extends Methods{
@@ -99,32 +100,27 @@ public class CalculationMethods extends Methods{
 
     private double calculation(Stack<String> stack){
         try {
-            double a = Double.parseDouble(stack.firstElement());
-            double b;
-            Toast.makeText(context, stack.toString(), Toast.LENGTH_SHORT).show();
-            String c = stack.pop();
-            char operator = c.charAt(0);
-            if (stack.size()==2){
-                b = Double.parseDouble(stack.pop());
-                return calculate(a,b,operator);
-            }
-            else{
-                Stack<String> temp = new Stack<>();
-                Stack<String> temp2 = new Stack<>();
-                while (stack.size()!=1){
-                    temp.push(stack.pop());
+            Iterator<String> i = stack.iterator();
+            Stack<Double> finalStack = new Stack<>();
+            Toast.makeText(context,stack.toString(), Toast.LENGTH_SHORT).show();
+            char ch;
+            while (i.hasNext()){
+                String s = i.next();
+                if (s.length()==1 && !Character.isDigit(s.charAt(0))){
+                    //this condition means operator
+                    ch = s.charAt(0);
+                    double b = finalStack.pop();
+                    double a = finalStack.pop();
+                    double res = calculate(a,b,ch);
+                    finalStack.push(res);
                 }
-                while (!temp.empty()){
-                    temp2.push(temp.pop());
+                else{
+//                    this condition means operand
+                    double num = Double.parseDouble(s);
+                    finalStack.push(num);
                 }
-                b = calculation(temp2);
-                return calculate(a,b,operator);
             }
-        }
-        catch (NumberFormatException e){
-//            Log.e("calculation",e.getMessage());
-            Toast.makeText(context, "Number Format exception", Toast.LENGTH_SHORT).show();
-            return 0;
+            return finalStack.pop();
         }
         catch (Exception e){
             Toast.makeText(context, "Unknown error at calculation()", Toast.LENGTH_SHORT).show();
