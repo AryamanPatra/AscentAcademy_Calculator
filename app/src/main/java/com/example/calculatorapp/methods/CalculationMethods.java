@@ -31,6 +31,7 @@ public class CalculationMethods extends Methods{
             HashMap<Character,Integer> heirarchy = new HashMap<Character,Integer>();
             Stack<String> operandStack = new Stack<String>();
             Stack<String> operatorStack = new Stack<String>();
+            heirarchy.put('~',-1);
             heirarchy.put(OPEN_BRAC,0);
             heirarchy.put(PLUS,1);
             heirarchy.put(MINUS,1);
@@ -38,15 +39,18 @@ public class CalculationMethods extends Methods{
             heirarchy.put(DIV,2);
 
             StringBuilder temp = new StringBuilder();
-            char poppedData = 0;
+            temp.append("");
+            char poppedData = '~';
             for (int i=0; i<expression.length(); i++){
                 char c = expression.charAt(i);
                 if ((c>=48 && c<=57) || c==PERIOD){
                     temp.append(c);
                 }
                 else{
-                    operandStack.add(temp.toString());
-                    temp.delete(0,temp.length());
+                    if (!temp.toString().equals("")){
+                        operandStack.add(temp.toString());
+                        temp.delete(0,temp.length());
+                    }
                     if (c==OPEN_BRAC)
                         operatorStack.push(""+c);
                     else if (c==CLOSE_BRAC){
@@ -55,10 +59,12 @@ public class CalculationMethods extends Methods{
                             operandStack.push(poppedData+"");
                         }
                         operandStack.pop();
+                        poppedData = '~';
                     }
                     else{
                         if (!operatorStack.empty()){
-                            if (heirarchy.get(c)>heirarchy.get(operatorStack.peek())){
+
+                            if (heirarchy.get(c)>heirarchy.get(operatorStack.peek().charAt(0))){
                                 operatorStack.push(c+"");
                             }
                             else{
@@ -76,7 +82,8 @@ public class CalculationMethods extends Methods{
                     }
                 }
             }
-            operandStack.add(temp.toString());
+            if (!temp.toString().equals(""))
+                operandStack.add(temp.toString());
             temp.delete(0,temp.length());
             while (!operatorStack.empty()){
                 operandStack.push(operatorStack.pop());
@@ -103,13 +110,14 @@ public class CalculationMethods extends Methods{
             }
             else{
                 Stack<String> temp = new Stack<>();
+                Stack<String> temp2 = new Stack<>();
                 while (stack.size()!=1){
                     temp.push(stack.pop());
                 }
                 while (!temp.empty()){
-                    stack.push(temp.pop());
+                    temp2.push(temp.pop());
                 }
-                b = calculation(stack);
+                b = calculation(temp2);
                 return calculate(a,b,operator);
             }
         }
