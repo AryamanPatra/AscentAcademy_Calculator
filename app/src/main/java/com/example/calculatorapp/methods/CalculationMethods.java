@@ -44,7 +44,7 @@ public class CalculationMethods extends Methods{
             char poppedData = '~';
             for (int i=0; i<expression.length(); i++){
                 char c = expression.charAt(i);
-                if ((c>=48 && c<=57) || c==PERIOD){
+                if (Character.isDigit(c) || c==PERIOD){
                     temp.append(c);
                 }
                 else{
@@ -69,11 +69,10 @@ public class CalculationMethods extends Methods{
                                 operatorStack.push(c+"");
                             }
                             else{
-                                while (poppedData!=OPEN_BRAC && heirarchy.get(poppedData)<heirarchy.get(c)){
+                                while(!operatorStack.empty() && operatorStack.peek().charAt(0)!=OPEN_BRAC && heirarchy.get(c)<=heirarchy.get(operatorStack.peek().charAt(0))){
                                     poppedData = operatorStack.pop().charAt(0);
                                     operandStack.push(poppedData+"");
                                 }
-                                operatorStack.push(poppedData+"");
                                 operatorStack.push(c+"");
                             }
                         }
@@ -102,7 +101,7 @@ public class CalculationMethods extends Methods{
         try {
             Iterator<String> i = stack.iterator();
             Stack<Double> finalStack = new Stack<>();
-            Toast.makeText(context,stack.toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,stack.toString(), Toast.LENGTH_LONG).show();
             char ch;
             while (i.hasNext()){
                 String s = i.next();
@@ -120,7 +119,8 @@ public class CalculationMethods extends Methods{
                     finalStack.push(num);
                 }
             }
-            return finalStack.pop();
+            double res = finalStack.pop();
+            return Math.round(res*10000.0)/10000.0;
         }
         catch (Exception e){
             Toast.makeText(context, "Unknown error at calculation()", Toast.LENGTH_SHORT).show();
